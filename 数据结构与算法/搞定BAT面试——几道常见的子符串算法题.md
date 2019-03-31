@@ -282,7 +282,7 @@ class Solution {
 输出: "bb"
 ```
 
-以某个元素为中心，分别计算偶数长度的回文最大长度和奇数长度的回文最大长度。给大家大致花了个草图，不要嫌弃！
+以某个元素为中心，分别计算偶数长度的回文最大长度和奇数长度的回文最大长度。给大家大致画了个草图，不要嫌弃！
 
 
 ![](https://user-gold-cdn.xitu.io/2018/9/9/165bc32f6f1833ff?w=723&h=371&f=png&s=9305)
@@ -344,7 +344,7 @@ class Solution {
 
 一个可能的最长回文子序列为 "bb"。
 
-**动态规划：**  dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j) otherwise, dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])
+**动态规划：**  `dp[i][j] = dp[i+1][j-1] + 2 if s.charAt(i) == s.charAt(j) otherwise, dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1])`
 
 ```java
 class Solution {

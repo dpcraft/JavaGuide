@@ -50,8 +50,7 @@ uniqueInstance 采用 volatile 关键字修饰也是很有必要的， uniqueIns
 
 使用 volatile 可以禁止 JVM 的指令重排，保证在多线程环境下也能正常运行。
 
-
-###synchronized 关键字底层原理总结
+### synchronized 关键字底层原理总结
 
 
 

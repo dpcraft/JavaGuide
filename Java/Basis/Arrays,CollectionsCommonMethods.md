@@ -296,7 +296,7 @@ System.out.println(Arrays.toString(strs));//[abcdeag, abcdefg, abcdehg]
         int[] h = { 1, 2, 3, 3, 3, 3, 6, 6, 6, };
 		int i[] = Arrays.copyOf(h, 6);
 		System.out.println("Arrays.copyOf(h, 6);：");
-		// 输出结果：993333
+		// 输出结果：123333
 		for (int j : i) {
 			System.out.print(j);
 		}

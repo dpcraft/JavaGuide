@@ -89,7 +89,7 @@
         ensureExplicitCapacity(minCapacity);
     }
 ```
-**当 要 add 进第1个元素时，minCapacity为1，在Math.max()方法比较后，minCapacity 为10。**
+**当 要 add 进第1个元素时，minCapacity为1，在Math.max()方法比较后，minCapacity 为10。**如果采用无参构造，则第一次add时扩容为10；如果是有参构造（参数为0），则第一次add时扩容为1。
 
 ### 3. `ensureExplicitCapacity()` 方法 
 
@@ -208,7 +208,7 @@
     }
 ```
 
-我们写一个简单的方法测试以下：
+我们写一个简单的方法测试一下：
 
 ```java
 public class ArraycopyTest {

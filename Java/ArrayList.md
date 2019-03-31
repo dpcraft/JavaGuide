@@ -550,7 +550,7 @@ public class ArrayList<E> extends AbstractList<E>
         System.arraycopy(elementData, index, elementData, index + 1, size - index);
         elementData[index] = element;
         size++;
-    }
+    } 
 ```
 又如toArray()方法中用到了copyOf()方法
 ```java
@@ -579,6 +579,7 @@ public class ArrayList<E> extends AbstractList<E>
     /**
      * 如有必要，增加此ArrayList实例的容量，以确保它至少能容纳元素的数量
      * @param   minCapacity   所需的最小容量
+     * public 方法，外部调用
      */
     public void ensureCapacity(int minCapacity) {
         int minExpand = (elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA)
@@ -593,6 +594,9 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
    //得到最小扩容量
+/**
+* private 方法，内部调用
+*/
     private void ensureCapacityInternal(int minCapacity) {
         if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
               // 获取默认的容量和传入参数的较大值

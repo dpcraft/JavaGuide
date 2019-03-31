@@ -18,7 +18,7 @@ synchronized关键字解决的是多个线程之间访问资源的同步性，sy
 - **修饰静态方法，作用于当前类对象加锁，进入同步代码前要获得当前类对象的锁** 。也就是给当前类加锁，会作用于类的所有对象实例，因为静态成员不属于任何一个实例对象，是类成员（ static 表明这是该类的一个静态资源，不管new了多少个对象，只有一份，所以对该类的所有对象都加了锁）。所以如果一个线程A调用一个实例对象的非静态 synchronized 方法，而线程B需要调用这个实例对象所属类的静态 synchronized 方法，是允许的，不会发生互斥现象，**因为访问静态 synchronized 方法占用的锁是当前类的锁，而访问非静态 synchronized 方法占用的锁是当前实例对象锁**。
 - **修饰代码块，指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。** 和 synchronized 方法一样，synchronized(this)代码块也是锁定当前对象的。synchronized 关键字加到 static 静态方法和 synchronized(class)代码块上都是是给 Class 类上锁。这里再提一下：synchronized关键字加到非 static 静态方法上是给对象实例上锁。另外需要注意的是：尽量不要使用 synchronized(String a) 因为JVM中，字符串常量池具有缓冲功能！
 
-下面我已一个常见的面试题为例讲解一下 synchronized 关键字的具体使用。
+下面我以一个常见的面试题为例讲解一下 synchronized 关键字的具体使用。
 
 面试中面试官经常会说：“单例模式了解吗？来给我手写一下！给我解释一下双重检验锁方式实现单例模式的原理呗！”
 
@@ -181,9 +181,9 @@ synchronized 是依赖于 JVM 实现的，前面我们也讲到了 虚拟机团�
 ### 3.3 执行execute()方法和submit()方法的区别是什么呢？
 
   1)**`execute()` 方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功与否；**
-  
+
   2)**submit()方法用于提交需要返回值的任务。线程池会返回一个future类型的对象，通过这个future对象可以判断任务是否执行成功**，并且可以通过future的get()方法来获取返回值，get()方法会阻塞当前线程直到任务完成，而使用 `get（long timeout，TimeUnit unit）`方法则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完。
-  
+
 
 ### 3.4 如何创建线程池
 
@@ -255,7 +255,7 @@ Atomic 翻译成中文是原子的意思。在化学上，我们知道原子是�
 ### 4.3 讲讲 AtomicInteger 的使用
 
  **AtomicInteger 类常用方法**
- 
+
 ```java
 public final int get() //获取当前的值
 public final int getAndSet(int newValue)//获取当前的值，并设置新的值
@@ -303,7 +303,7 @@ AtomicInteger 类的部分源码：
     }
 
     private volatile int value;
-``` 
+```
 
 AtomicInteger 类主要利用 CAS (compare and swap) + volatile 和 native 方法来保证原子操作，从而避免 synchronized 的高开销，执行效率大为提升。
 
